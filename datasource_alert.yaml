@@ -1,4 +1,3 @@
-cat Datasource_alert.yaml 
 name: DaataSource Alert
 type: frequency
 num_events: 4
