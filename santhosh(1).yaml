@@ -1,0 +1,54 @@
+name: santhosh alert
+type: frequency
+num_events: 4
+
+timeframe:
+  minutes: 10
+
+filter:
+- query:
+    query_string:
+      query: "No resources currently available in pool"
+
+index: ofm-prod
+
+realert:
+  minutes: 5
+
+include:
+  - fields.hostname
+  - fields.sourcetype
+  - message
+
+include_match_in_root: true
+max_instances: 2
+
+alert_subject: "Alert: DataSource on - Hostname: {0}, Sourcetype: {1}"
+alert:
+- email
+- ms_teams
+
+email:
+  - 'santhosh.kumar@thermofisher.com'
+from_addr: 'iteas.sintofma@thermofisher.onmicrosoft.com'
+to: 'tfs-monitoring-alerts-ofm@thermofisher.onmicrosoft.com'
+
+alert_subject_args:
+  - fields.hostname
+  - fields.sourcetype
+  - message
+
+alert_text: |-
+  Hi Team,
+
+  This is to inform you that DataSource Alert on the host {0}, Sourcetype: {1}
+
+alert_text_args:
+  - fields.hostname
+  - fields.sourcetype
+  - message
+
+
+ms_teams_alert_summary: Alert
+ms_teams_theme_color: '#ff0000'
+ms_teams_webhook_url: 'https://thermofisher.webhook.office.com/webhookb2/66895e40-75a5-4759-adc2-1c575a130ebc@b67d722d-aa8a-4777-a169-ebeb7a6a3b67/IncomingWebhook/0fef4d6f5df6455a9b54707592c432ef/5c96fc64-f6a9-4f1b-9a94-393be91d2c9c'
