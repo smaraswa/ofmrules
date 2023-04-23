@@ -29,8 +29,7 @@ alert:
 - ms_teams
 
 email:
-  - 'iteas.sintofma@thermofisher.onmicrosoft.com'
-  - 'tfs-monitoring-alerts-ofm@thermofisher.onmicrosoft.com'
+  - 'santhosh.kumar@thermofisher.com'
 from_addr: 'iteas.sintofma@thermofisher.onmicrosoft.com'
 to: 'tfs-monitoring-alerts-ofm@thermofisher.onmicrosoft.com'
 
