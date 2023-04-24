@@ -1,4 +1,4 @@
-name: santhosh alert
+name: E1 EB Connection Error
 type: frequency
 num_events: 4
 
@@ -8,7 +8,7 @@ timeframe:
 filter:
 - query:
     query_string:
-      query: "No resources currently available in pool"
+      query: "oracle.ucp.UniversalConnectionPoolException"
 
 index: ofm-prod
 
@@ -23,13 +23,13 @@ include:
 include_match_in_root: true
 max_instances: 2
 
-alert_subject: "Alert: DataSource on - Hostname: {0}, Sourcetype: {1}"
+alert_subject: "Alert: Submit Order E1 DB connection Error on - Hostname: {0}, Sourcetype: {1}"
 alert:
 - email
 - ms_teams
 
 email:
-  - 'santhosh.kumar@thermofisher.com'
+  - 'iteas.sintofma@thermofisher.onmicrosoft.com'
 from_addr: 'iteas.sintofma@thermofisher.onmicrosoft.com'
 to: 'tfs-monitoring-alerts-ofm@thermofisher.onmicrosoft.com'
 
@@ -41,7 +41,7 @@ alert_subject_args:
 alert_text: |-
   Hi Team,
 
-  This is to inform you that DataSource Alert on the host {0}, Sourcetype: {1}
+  This is to inform you that Submit Order E1 DB Connection Error occured on the host {0}, Sourcetype: {1}
 
 alert_text_args:
   - fields.hostname
